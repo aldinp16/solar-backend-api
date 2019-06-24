@@ -1,0 +1,39 @@
+{
+  "name": "solar-backend-api",
+  "version": "0.1.0",
+  "adonis-version": "4.1.0",
+  "description": "Backend API for solar-monitoring-system",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "standard && node ace test"
+  },
+  "standard": {
+    "globals": [
+      "use"
+    ]
+  },
+  "author": "Aldi Nugraha <aldinugrahap16@gmail.com>",
+  "private": true,
+  "dependencies": {
+    "@adonisjs/ace": "^5.0.8",
+    "@adonisjs/auth": "^3.0.7",
+    "@adonisjs/bodyparser": "^2.0.5",
+    "@adonisjs/cors": "^1.0.7",
+    "@adonisjs/fold": "^4.0.9",
+    "@adonisjs/framework": "^5.0.9",
+    "@adonisjs/ignitor": "^2.0.8",
+    "@adonisjs/lucid": "^6.1.3",
+    "@adonisjs/validator": "^5.0.6",
+    "@adonisjs/vow": "^1.0.17",
+    "@adonisjs/websocket": "^1.0.11",
+    "pg": "^7.11.0"
+  },
+  "devDependencies": {
+    "pre-commit": "^1.2.2",
+    "standard": "^12.0.1"
+  },
+  "autoload": {
+    "App": "./app"
+  }
+}
