@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [0.1.0] - 2014-05-31
+## [0.1.0] - 2019-06-24
 ### Added
 - user management
 - device management
@@ -10,4 +10,4 @@ All notable changes to this project will be documented in this file.
 - real time data over websocket
 - alert notification over websocket
 
-[0.1.0]: https://github.com/aldinp16/solar-backend-api/releases/tag/v0.0.1sfa
+[0.1.0]: https://github.com/aldinp16/solar-backend-api/releases/tag/v0.1.0
