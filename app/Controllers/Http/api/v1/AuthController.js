@@ -3,7 +3,7 @@
 class AuthController {
   async login ({ request, response, auth }) {
     const { email, password } = request.post()
-    const token = await auth.attempt(email, password)
+    const token = await auth.attempt(email, password, true)
     return response.ok({
       status: 200,
       error: false,
