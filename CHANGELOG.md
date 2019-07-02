@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 
 ## [0.1.1] - 2019-07-02
 ### Added
-- add user info in jwt payload
+- add user info in jwt payload #1
 
 ### Removed
 - log in DatumController
