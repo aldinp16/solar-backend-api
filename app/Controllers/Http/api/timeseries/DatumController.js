@@ -23,7 +23,6 @@ class DatumController {
         const subscriptions = Ws.getChannel('alert:*').topic(`alert:${userId}`)
         // send alert when subscriptions available
         if (subscriptions) {
-          console.log('excuted')
           subscriptions.broadcast('notify', key)
         }
       }
