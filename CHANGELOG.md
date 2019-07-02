@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.1.1] - 2019-07-02
+### Added
+- add user info in jwt payload
+
+### Removed
+- log in DatumController
+
 ## [0.1.0] - 2019-06-24
 ### Added
 - user management
@@ -9,5 +16,3 @@ All notable changes to this project will be documented in this file.
 - `api/timeseries for` write data from mqtt client
 - real time data over websocket
 - alert notification over websocket
-
-[0.1.0]: https://github.com/aldinp16/solar-backend-api/releases/tag/v0.1.0
