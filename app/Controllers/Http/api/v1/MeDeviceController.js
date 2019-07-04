@@ -5,7 +5,7 @@ class MeDeviceController {
     const user = auth.current.user
     const devices = (await user
       .devices()
-      .paginate(+request.input('page', 1), 10)
+      .fetch()
     ).toJSON()
     return response.ok({
       status: 200,
