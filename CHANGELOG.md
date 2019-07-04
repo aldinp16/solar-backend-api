@@ -1,6 +1,16 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.2.0] - 2019-07-04
+### Added
+- add historical data endpoint
+
+### Changed
+- fix serial_number empty when write point timeseries
+
+### Removed
+- remove pagination in user device list
+
 ## [0.1.1] - 2019-07-02
 ### Added
 - add user info in jwt payload #1
