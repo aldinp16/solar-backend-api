@@ -18,7 +18,7 @@ class TimeseriesHistoryInfoSchema extends Schema {
       table.integer('total_number_battery_over_discharge')
       table.integer('total_number_battery_full_discharge')
       table.integer('total_charging_amp_hrs_battery')
-      table.integer('total_sischarging_amp_hrs_battery')
+      table.integer('total_discharging_amp_hrs_battery')
       table.integer('cumulative_power_generation')
       table.integer('cumulative_power_consumption')
     })

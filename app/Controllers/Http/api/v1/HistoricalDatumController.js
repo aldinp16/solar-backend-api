@@ -55,7 +55,7 @@ SELECT
   last(total_number_battery_over_discharge, time) as total_number_battery_over_discharge,
   last(total_number_battery_full_discharge, time) as total_number_battery_full_discharge,
   last(total_charging_amp_hrs_battery, time) as total_charging_amp_hrs_battery,
-  last(total_sischarging_amp_hrs_battery, time) as total_sischarging_amp_hrs_battery,
+  last(total_discharging_amp_hrs_battery, time) as total_sischarging_amp_hrs_battery,
   last(cumulative_power_generation, time) as cumulative_power_generation,
   last(cumulative_power_consumption, time) as cumulative_power_consumption
 FROM
