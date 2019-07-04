@@ -33,6 +33,9 @@ Route.group(() => {
   Route.get('device/:serialNumber', 'MeDeviceController.show')
   Route.put('device/:serialNumber', 'MeDeviceController.update').validator('Device/Update')
   Route.delete('device/:serialNumber', 'MeDeviceController.delete')
+
+  Route.get('device/:serialNumber/batteryInfo', 'HistoricalDatumController.batteryInfo')
+  Route.get('device/:serialNumber/historyInfo', 'HistoricalDatumController.batteryInfo')
 }).namespace('api/v1').prefix('api/v1/me').middleware(['auth'])
 
 // Only is_admin true can access
