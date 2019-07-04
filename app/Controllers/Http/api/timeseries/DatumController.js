@@ -12,7 +12,8 @@ class DatumController {
 
     // insert data using key as database with prefix `timeseries`
     Object.keys(data).forEach((key) => {
-      promises.push(Database.insert(data[key]).into(`timeseries_${key}`))
+      const timeseriesData = { ...data[key], serial_number: serialNumber }
+      promises.push(Database.insert(timeseriesData).into(`timeseries_${key}`))
     })
 
     // push alert if some value in fault_info is true except time
