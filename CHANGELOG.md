@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.2.1] - 2019-07-05
+### Added
+- fix timestamp value check
+
 ## [0.2.0] - 2019-07-04
 ### Added
 - add historical data endpoint
