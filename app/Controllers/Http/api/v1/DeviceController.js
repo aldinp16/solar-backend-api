@@ -13,7 +13,7 @@ class DeviceController {
     return response.ok({
       status: 200,
       error: false,
-      data: devices
+      ... devices
     })
   }
 

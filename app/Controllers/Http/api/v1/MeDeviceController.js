@@ -10,7 +10,7 @@ class MeDeviceController {
     return response.ok({
       status: 200,
       error: false,
-      ...devices
+      data: devices
     })
   }
 
