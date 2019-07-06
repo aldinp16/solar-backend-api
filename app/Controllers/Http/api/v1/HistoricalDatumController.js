@@ -3,14 +3,14 @@
 const Database = use('Database')
 
 class HistoricalDatumController {
-  async batteryInfo ({ request, response, auth, params: { serialNumber } }) {
+  async index ({ request, response, auth, params: { serialNumber } }) {
     const user = auth.current.user
     await user
       .devices()
       .where({ serial_number: serialNumber })
       .fetch()
 
-    const query = `
+    const batteryInfoQuery = `
 SELECT
   time_bucket('1 day', time) AS day,
   last(battery_min_volt_current_day, time) as battery_min_volt_current_day,
@@ -34,21 +34,7 @@ WHERE
 GROUP BY
   day;
 `
-    const batteryInfo = await Database.raw(query, [ serialNumber, request.input('timeStart'), request.input('timeEnd') ])
-    return response.ok({
-      status: 200,
-      error: false,
-      data: batteryInfo.rows
-    })
-  }
-
-  async historyInfo ({ request, response, auth, params: { serialNumber } }) {
-    const user = auth.current.user
-    await user
-      .devices()
-      .where({ serial_number: serialNumber })
-      .fetch()
-    const query = `
+    const historyInfoQuery = `
 SELECT 
   time_bucket('1 day', time) AS day,
   last(total_number_operating_days, time) as total_number_operating_days,
@@ -69,11 +55,14 @@ WHERE
 GROUP BY
   day;
 `
-    const historyInfo = await Database.raw(query, [ serialNumber, request.input('timeStart'), request.input('timeEnd') ])
+    const data = await Promise.all([ batteryInfoQuery, historyInfoQuery ].map((query) => {
+      return Database.raw(query, [ serialNumber, request.input('timeStart'), request.input('timeEnd') ])
+    }))
+
     return response.ok({
       status: 200,
       error: false,
-      data: historyInfo.rows
+      data: { batteryInfo: data[0].rows, historyInfo: data[1].rows }
     })
   }
 }
