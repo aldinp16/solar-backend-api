@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.3.1] - 2019-07-06
+### Changed
+- Refactor JSON response
+
 ## [0.3.0] - 2019-07-06
 ### Added
 - `InvalidJwtToken` exception
