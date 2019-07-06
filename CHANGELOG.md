@@ -1,6 +1,15 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.2.2] - 2019-07-06
+### Added
+- `InvalidJwtToken` exception
+- device dashboard
+
+### Changed
+- refactor devicelist json format
+- fix batteryInfo and historyInfo typo controller
+
 ## [0.2.1] - 2019-07-05
 ### Added
 - fix timestamp value check
