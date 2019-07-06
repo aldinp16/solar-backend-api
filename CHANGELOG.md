@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file.
 ## [0.2.1] - 2019-07-05
 ### Added
 - fix timestamp value check
+- fix dis > sis in schema and data handler
 
 ## [0.2.0] - 2019-07-04
 ### Added
