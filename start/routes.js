@@ -35,7 +35,7 @@ Route.group(() => {
   Route.delete('device/:serialNumber', 'MeDeviceController.delete')
 
   Route.get('device/:serialNumber/batteryInfo', 'HistoricalDatumController.batteryInfo')
-  Route.get('device/:serialNumber/historyInfo', 'HistoricalDatumController.batteryInfo')
+  Route.get('device/:serialNumber/historyInfo', 'HistoricalDatumController.historyInfo')
 }).namespace('api/v1').prefix('api/v1/me').middleware(['auth'])
 
 // Only is_admin true can access
