@@ -36,6 +36,7 @@ Route.group(() => {
 
   Route.get('device/:serialNumber/batteryInfo', 'HistoricalDatumController.batteryInfo')
   Route.get('device/:serialNumber/historyInfo', 'HistoricalDatumController.historyInfo')
+  Route.get('device/:serialNumber/dashboard', 'DeviceDashboardController.index')
 }).namespace('api/v1').prefix('api/v1/me').middleware(['auth'])
 
 // Only is_admin true can access
