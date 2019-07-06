@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.3.2] - 2019-07-6
+### Changed
+- Refactor JSON response (merge historical info endpoint)
+
 ## [0.3.1] - 2019-07-06
 ### Changed
 - Refactor JSON response
