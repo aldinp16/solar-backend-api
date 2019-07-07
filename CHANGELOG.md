@@ -1,7 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [0.3.2] - 2019-07-6
+## [0.3.3] - 2019-07-07
+### Added
+- add system_info data in device info endpoint
+
+## [0.3.2] - 2019-07-06
 ### Changed
 - Refactor JSON response (merge historical info endpoint)
 
