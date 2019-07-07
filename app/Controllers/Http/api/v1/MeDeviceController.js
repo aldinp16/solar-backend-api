@@ -1,5 +1,7 @@
 'use strict'
 
+const Database = use('Database')
+
 class MeDeviceController {
   async index ({ request, response, auth }) {
     const user = auth.current.user
@@ -33,10 +35,15 @@ class MeDeviceController {
       .where({ serial_number: serialNumber })
       .fetch()
     ).toJSON()
+    const systemInfo = await Database
+      .table('timeseries_system_info')
+      .where('serial_number', serialNumber)
+      .orderBy('time', 'desc')
+      .first()
     return response.ok({
       status: 200,
       error: false,
-      data: device[0]
+      data: { ...device[0], ...systemInfo }
     })
   }
 
