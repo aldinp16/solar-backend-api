@@ -3,7 +3,6 @@
 const Database = use('Database')
 
 class DeviceDashboardController {
-
   $getLastInfo (tableName, serialNumber) {
     return Database
       .table(tableName)
@@ -12,14 +11,13 @@ class DeviceDashboardController {
       .first()
   }
 
-
   async index ({ request, response, auth, params: { serialNumber } }) {
     const user = auth.current.user
     await user
       .devices()
-      .where({ serial_number: serialNumber})
+      .where({ serial_number: serialNumber })
       .fetch()
- 
+
     const tableList = [
       'timeseries_system_info',
       'timeseries_control_dynamic_info',
@@ -42,7 +40,6 @@ class DeviceDashboardController {
       data: groupedData
     })
   }
-
 }
 
 module.exports = DeviceDashboardController

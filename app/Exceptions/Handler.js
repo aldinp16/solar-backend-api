@@ -28,7 +28,7 @@ class ExceptionHandler extends BaseExceptionHandler {
       case 'UnauthorizedAccessException':
         return response.forbidden({ status: 403, error: true, message: error.message })
       case 'InvalidJwtToken':
-        return response.forbidden({ status: 403, error: true, message: error.message })      
+        return response.forbidden({ status: 403, error: true, message: error.message })
       case 'PasswordMisMatchException':
         return response.unauthorized({ status: 401, error: true, message: 'invalid email or password' })
       case 'UserNotFoundException':

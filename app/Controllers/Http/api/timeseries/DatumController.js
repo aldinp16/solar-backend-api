@@ -11,7 +11,7 @@ class DatumController {
     const userId = (await Device.findByOrFail('serial_number', serialNumber)).user_id
 
     // insert data using key as database with prefix `timeseries`
-    Object.keys(data).forEach((key) => {      
+    Object.keys(data).forEach((key) => {
       const timeseriesData = { ...data[key], serial_number: serialNumber }
 
       if (!timeseriesData.time) {
