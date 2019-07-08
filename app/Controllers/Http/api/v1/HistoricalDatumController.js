@@ -32,7 +32,10 @@ WHERE
     AND 
   time <= ?
 GROUP BY
-  day;
+  day
+ORDER BY
+  day
+ASC;
 `
     const historyInfoQuery = `
 SELECT 
@@ -53,7 +56,10 @@ WHERE
     AND 
   time <= ?
 GROUP BY
-  day;
+  day
+ORDER BY
+  day
+ASC;
 `
     const data = await Promise.all([ batteryInfoQuery, historyInfoQuery ].map((query) => {
       return Database.raw(query, [ serialNumber, request.input('timeStart'), request.input('timeEnd') ])
