@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.4.0] - 2019-07-09
+### Added
+- add order by time desc in historical data
+- add historical data detail
+
 ## [0.3.3] - 2019-07-07
 ### Added
 - add system_info data in device info endpoint
