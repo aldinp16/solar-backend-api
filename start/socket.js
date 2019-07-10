@@ -16,4 +16,4 @@
 const Ws = use('Ws')
 
 Ws.channel('alert:*', 'AlertController').middleware(['auth', 'secureChannel'])
-Ws.channel('realtime-data:*', 'RealtimeDatumController').middleware(['auth', 'secureChannel'])
+Ws.channel('realtime-data:*', 'RealtimeDatumController').middleware(['auth', 'secureChannelDevice'])

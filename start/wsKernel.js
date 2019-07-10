@@ -32,7 +32,8 @@ const globalMiddleware = [
 */
 const namedMiddleware = {
   auth: 'Adonis/Middleware/Auth',
-  secureChannel: 'App/Middleware/SecureChannel'
+  secureChannel: 'App/Middleware/SecureChannel',
+  secureChannelDevice: 'App/Middleware/SecureChannelDevice'
 }
 
 Ws
