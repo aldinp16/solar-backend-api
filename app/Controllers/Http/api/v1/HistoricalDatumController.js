@@ -73,36 +73,63 @@ ASC;
   }
 
   async show ({ request, response, auth, params: { serialNumber } }) {
-    // const user = auth.current.user
-    // await user
-    //   .devices()
-    //   .where({ serial_number: serialNumber })
-    //   .fetch()
+    const user = auth.current.user
+    await user
+      .devices()
+      .where({ serial_number: serialNumber })
+      .fetch()
 
-    const tableList = [
-      'timeseries_system_info',
-      'timeseries_control_dynamic_info',
-      'timeseries_solar_panel_info',
-      'timeseries_battery_info',
-      'timeseries_history_info',
-      'timeseries_load_info'
-    ]
+    const controlDynamicInfoQuery = `
+SELECT
+  time_bucket('30 minutes', time) AS thirty_min,
+  last("battery_capacity_SOC", time) AS battery_capacity_SOC,
+  last("battery_voltage", time) AS battery_voltage,
+  last("charging_current_to_battery", time) AS charging_current_to_battery,
+  last("controller_temp", time) AS controller_temp,
+  last("battery_temp", time) AS battery_temp,
+  last("load_DC_voltage", time) AS load_DC_voltage,
+  last("load_DC_current", time) AS load_DC_current,
+  last("load_DC_power", time) AS load_DC_power
+FROM 
+  timeseries_control_dynamic_info
+WHERE
+    CAST(time as DATE) = ?
+  AND
+    serial_number = ?
+GROUP BY
+  thirty_min
+ORDER BY
+  thirty_min
+ASC;
+    `
 
-    const data = await Promise.all(tableList.map((table) => {
-      return Database.raw(`
-        SELECT * FROM ${table} WHERE CAST(time as DATE) = ? AND serial_number = ? ORDER BY time ASC;
-      `, [ request.input('date'), serialNumber ])
+    const solarPanelInfoQuery = `
+SELECT
+  time_bucket('30 minutes', time) AS thirty_min,
+  last("solar_panel_voltage", time) AS solar_panel_voltage,
+  last("solar_panel_current_to_controller", time) AS solar_panel_current_to_controller,
+  last("charging_power", time) AS charging_power
+FROM
+  timeseries_solar_panel_info
+WHERE
+    CAST(time as DATE) = ?
+  AND
+    serial_number = ?
+GROUP BY
+  thirty_min
+ORDER BY
+  thirty_min
+ASC;
+    `
+
+    const [ controlDynamicInfo, solarPanelInfo ] = await Promise.all([ controlDynamicInfoQuery, solarPanelInfoQuery].map((query) => {
+      return Database.raw(query, [ request.input('date'), serialNumber ])
     }))
-    const groupedData = {}
-    tableList.forEach((table, i) => {
-      const groupName = table.split('_').slice(1).join('_')
-      groupedData[`${groupName}`] = data[i].rows
-    })
 
     return response.ok({
       status: 200,
       error: false,
-      data: groupedData
+      data: { controlDynamicInfo: controlDynamicInfo.rows, solarPanelInfo: solarPanelInfo.rows }
     })
   }
 }
