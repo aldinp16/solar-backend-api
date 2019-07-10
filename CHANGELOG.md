@@ -1,6 +1,15 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.4.1] - 2019-07-10
+### Added
+- add more attribute in fault_info
+- add more info in alert payload
+
+### Changed
+- change detail history data to interval 30 minutes
+- change alert topic from user id to serial_number
+
 ## [0.4.0] - 2019-07-09
 ### Added
 - add order by time desc in historical data
@@ -12,11 +21,11 @@ All notable changes to this project will be documented in this file.
 
 ## [0.3.2] - 2019-07-06
 ### Changed
-- Refactor JSON response (merge historical info endpoint)
+- refactor JSON response (merge historical info endpoint)
 
 ## [0.3.1] - 2019-07-06
 ### Changed
-- Refactor JSON response
+- refactor JSON response
 
 ## [0.3.0] - 2019-07-06
 ### Added
