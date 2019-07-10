@@ -26,10 +26,10 @@ class DatumController {
       const isNotTime = (key !== 'time')
       if (data.fault_info[key] && isNotTime) {
         // send alert to channel alert with channel alert:{user_id}
-        const subscriptions = Ws.getChannel('alert:*').topic(`alert:${userId}`)
+        const subscriptions = Ws.getChannel('alert:*').topic(`alert:${serialNumber}`)
         // send alert when subscriptions available
         if (subscriptions) {
-          subscriptions.broadcast('notify', key)
+          subscriptions.broadcast('notify', { attribute: key, serial_number: serialNumber })
         }
       }
     })
