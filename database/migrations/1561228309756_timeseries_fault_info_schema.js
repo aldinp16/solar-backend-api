@@ -26,6 +26,9 @@ class TimeseriesFaultInfoSchema extends Schema {
       table.boolean('controller_temperature_too_high')
       table.boolean('load_overpower_or_load_over_current')
       table.boolean('load_short_circuit')
+      table.boolean('battery_over_discharge')
+      table.boolean('battery_over_voltage')
+      table.boolean('battery_under_voltage_warning')
     })
 
     this.schedule(async (trx) => {
