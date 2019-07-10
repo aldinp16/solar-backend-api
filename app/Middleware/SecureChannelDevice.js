@@ -4,7 +4,6 @@
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
 class SecureChannelDevice {
-
   /**
    * @param {object} ctx
    * @param {Request} ctx.request

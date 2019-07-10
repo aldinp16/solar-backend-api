@@ -122,7 +122,7 @@ ORDER BY
 ASC;
     `
 
-    const [ controlDynamicInfo, solarPanelInfo ] = await Promise.all([ controlDynamicInfoQuery, solarPanelInfoQuery].map((query) => {
+    const [ controlDynamicInfo, solarPanelInfo ] = await Promise.all([ controlDynamicInfoQuery, solarPanelInfoQuery ].map((query) => {
       return Database.raw(query, [ request.input('date'), serialNumber ])
     }))
 
