@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.4.3] - 2019-07-12
+### Changed
+- fix some typo and added return statement
+
 ## [0.4.2] - 2019-07-12
 ### Changed
 - fixtypo in channel websocket
