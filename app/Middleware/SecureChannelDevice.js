@@ -15,14 +15,14 @@ class SecureChannelDevice {
     const socketTopicDevice = socket.topic.split(':')[1]
     try {
       await auth.current.user
-        .device()
+        .devices()
         .where({ serial_number: socketTopicDevice })
         .fetch()
     } catch (err) {
       return socket.close()
     }
 
-    await next()
+    return next()
   }
 }
 
