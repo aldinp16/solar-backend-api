@@ -26,7 +26,7 @@ class DatumController {
       const isNotTime = (key !== 'time')
       if (data.fault_info[key] && isNotTime) {
         // send alert to channel alert with channel alert:{user_id}
-        const subscriptions = Ws.getChannel('alert:*').topic(`alert:${serialNumber}`)
+        const subscriptions = Ws.getChannel('alert:*').topic(`alert:${userId}`)
         // send alert when subscriptions available
         if (subscriptions) {
           subscriptions.broadcast('notify', { attribute: key, serial_number: serialNumber })
@@ -34,7 +34,7 @@ class DatumController {
       }
     })
 
-    const subscriptions = Ws.getChannel('realtime-data:*').topic(`realtime-data:${userId}`)
+    const subscriptions = Ws.getChannel('realtime-data:*').topic(`realtime-data:${serialNumber}`)
     if (subscriptions) {
       subscriptions.broadcast('notify', data)
     }
