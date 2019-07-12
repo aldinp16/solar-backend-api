@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.4.2] - 2019-07-12
+### Changed
+- fixtypo in channel websocket
+
 ## [0.4.1] - 2019-07-10
 ### Added
 - add more attribute in fault_info
