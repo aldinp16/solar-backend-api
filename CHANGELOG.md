@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.0.0] - 2019-07-17
+### Changed
+- no change, jus up to 1.0.0 stable
+
 ## [0.4.3] - 2019-07-12
 ### Changed
 - fix some typo and added return statement
